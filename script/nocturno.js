@@ -7,9 +7,9 @@ function cambiarImg() {
     imgs.forEach((img) => {
         const imgId = img.id;
         if(body.className.includes("nocturno")) {
-            img.src = `./img/${imgId}-noc.svg`;
+            img.src = `./src/${imgId}-noc.svg`;
         } else {
-            img.src = `./img/${imgId}.svg`;
+            img.src = `./src/${imgId}.svg`;
         }
         
     })

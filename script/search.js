@@ -76,7 +76,7 @@ searchBtn.addEventListener('click', () => {
         getSearch(q);
     } else {
         sugContainer.classList.add('hidden');
-        iconSearch.src = './img/icon-search.svg';
+        iconSearch.src = './src/icon-search.svg';
         searchInput.value = '';
     }
 });
@@ -105,6 +105,6 @@ searchInput.addEventListener('keypress', (e) => {
 searchInput.addEventListener('keyup', () => {
     if (searchInput.value !== '') {
         console.log('succsess');
-        iconSearch.src = './img/close.svg';
+        iconSearch.src = './src/close.svg';
     }
 })
