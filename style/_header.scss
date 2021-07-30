@@ -1,0 +1,82 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 90px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    border-top: $primary-color 5px solid;
+    position: fixed;
+    top: 0;
+    background-color: rgba($color: #fff, $alpha: .7);
+}
+.logo {
+    height: 60px;
+    width: 60px;
+    margin-top: 20px;
+    margin-left: 10vw;
+    
+}
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navbar_ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 35vw;
+    margin-right: 10vw;
+}
+.navbar_ul a {
+    font-size: 13px;
+    color: $primary-color;
+}
+
+#menu_trigger {
+    display: none;
+}
+
+
+
+@media (max-width: 768px) {
+
+    .header {
+        background-color: rgba($color: #fff, $alpha: 1);
+    }
+    .navbar {
+        display: none;   
+        background-color: rgba(87,46,229,0.90);
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        top: 90px;
+    }
+    .navbar_ul {
+        flex-direction: column;
+        justify-content: space-evenly;
+        left: 0;
+        width: 100%;
+        height: 50%;
+    }
+    .navbar_ul a {
+        color: white;
+    }
+    .showElement {
+        display: initial;
+    }
+    #menu_trigger {
+        display: unset;
+        position: fixed;
+        right: 10vw;
+
+    }
+    .nocturno .navbar {
+        background-color: black;
+    }
+    
+}
+

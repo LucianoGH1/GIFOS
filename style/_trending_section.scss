@@ -1,0 +1,91 @@
+.trending_section {
+    text-align: center;
+    width: 100%;
+    margin: auto;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    background-color: #F3F5F8;
+}
+
+.trending_section p {
+    font-weight: lighter;
+    margin: 1rem;
+}
+
+.trending_gifos {
+    padding: 5rem;
+}
+
+.trending_gifos p {
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+
+}
+
+.gifCont {
+    display: flex;
+    align-items: center;
+    overflow-x: scroll;
+
+}
+
+.carrousel {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.gif {
+    width: 300px;
+    height: 300px;
+    margin: 1rem;
+    z-index: 1;
+
+}
+.gifOverlay {
+    width: 300px;
+    height: 300px;
+    z-index: 2;
+}
+
+.gif:hover {
+    cursor: pointer;
+
+}
+
+.btn-slider {
+    cursor: pointer;
+}
+
+
+.gifCont::-webkit-scrollbar {
+    display: none;
+}
+  
+ 
+.gifCont {
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+}
+
+@media (max-width: 768px) {
+    .trending_gifos_gifs {
+        overflow-x: scroll;
+    }
+
+    .btn-slider {
+        display: none;
+    }
+
+    .carrousel {
+        margin: 0 1rem;
+    }
+
+    .trending_gifos {
+        padding: 0;
+    }
+
+
+
+}

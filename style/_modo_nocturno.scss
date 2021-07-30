@@ -1,0 +1,35 @@
+.nocturno {
+    color: white;
+    background-color: $noc-color;
+}
+.nocturno header, 
+.nocturno footer {
+    border-color: black;
+}
+.nocturno header {
+    background-color: rgba($color: $noc-color, $alpha: .7);
+}
+.nocturno input {
+    background-color: $noc-color;
+}
+.nocturno .navbar a,
+.nocturno .trending_gifos p {
+    color:white;
+}
+.nocturno .search_bar,
+.nocturno .caja {
+    border-color: white;
+}
+.nocturno .search_input {
+    color: white;
+}
+.nocturno .trending_gifos {
+    background-color: $noc-color2;
+}
+
+@media (max-width: 768px) {
+    .nocturno header {
+        background-color: rgba($color: $noc-color, $alpha: 1);
+
+    }
+}

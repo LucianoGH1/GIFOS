@@ -1,0 +1,24 @@
+.crear_section {
+    width: 90%;
+    height: 80vh;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5rem;
+}
+.camara {
+    height: 162px;
+    width: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 16rem;
+    left: 7rem;
+}
+.pantalla {
+    border: 1px solid $primary-color;
+    width: 688px;
+    height: 390px;
+}

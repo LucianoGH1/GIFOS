@@ -1,0 +1,26 @@
+@import"./variables";
+@import "./header";
+@import"./search_section";
+@import"./topics";
+@import"./trending_section";
+@import "./footer";
+@import "./modo_nocturno";
+@import "./crearGif";
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    line-height: 1.5;
+}
+html {
+    scroll-behavior: smooth;
+
+}
+body {
+    color: $primary-color;
+    background-color: white;
+
+}
