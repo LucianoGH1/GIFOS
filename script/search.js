@@ -21,14 +21,22 @@ async function getSearch(q) {
         let gifCont = document.createElement('div');
         let img = document.createElement('img');
         let gifOverlay = document.createElement('div');
+
         img.src = resultado.data[index].images.downsized.url;
         img.classList.add('gif');
         gifOverlay.classList.add('gifOverlay');
+        gifOverlay.classList.add('hidden')
         gifCont.classList.add('gifBox')
         gifCont.appendChild(img);
         gifCont.appendChild(gifOverlay);
-
         searchResults.appendChild(gifCont);
+        
+        gifCont.addEventListener('mouseenter', ()=> {
+            gifOverlay.classList.remove('hidden')
+        })
+        gifCont.addEventListener('mouseleave', ()=> {
+            gifOverlay.classList.add('hidden')
+        })
     }
     verMas.style.display = ('unset');
 }
@@ -108,3 +116,4 @@ searchInput.addEventListener('keyup', () => {
         iconSearch.src = './src/close.svg';
     }
 })
+
