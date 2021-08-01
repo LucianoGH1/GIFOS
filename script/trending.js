@@ -12,10 +12,10 @@ async function getTrending() {
     const resultado = await respuesta.json();
     const gifsData = resultado.data;
 
-    gifsData.map(gif => { //crea los elementos img para cada gif trending
-        const tgif = document.createElement('img');
-        tgif.src = gif.images.downsized.url;
-        tgif.classList.add('gif');
+    gifsData.map(g => { //crea los elementos img para cada gif trending
+        const gif = document.createElement('img');
+        gif.src = g.images.downsized.url;
+        gif.classList.add('gif');
 
         const gifBox = document.createElement('div');
         gifBox.classList.add('gifBox');
@@ -36,6 +36,8 @@ async function getTrending() {
         expandBtn.src = './src/expandBtn.svg';
         expandBtn.id = 'expandBtn';
 
+        const gifInfo = document.createElement('div');
+
         const userName = document.createElement('p');
         userName.textContent = 'Usuario';
         const gifName = document.createElement('p');
@@ -46,9 +48,10 @@ async function getTrending() {
         gifOverlay.appendChild(favBtn);
         gifOverlay.appendChild(downloadBtn);
         gifOverlay.appendChild(expandBtn);
-        gifOverlay.appendChild(userName);
-        gifOverlay.appendChild(gifName);
-        gifBox.appendChild(tgif);
+        gifInfo.appendChild(userName);
+        gifInfo.appendChild(gifName);
+        gifOverlay.appendChild(gifInfo);
+        gifBox.appendChild(gif);
         gifBox.appendChild(gifOverlay);
         gifCont.appendChild(gifBox);
 

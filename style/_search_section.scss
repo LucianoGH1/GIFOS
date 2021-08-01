@@ -98,6 +98,18 @@ h1 {
 }
 
 
+#searchResults .gifOverlay div {
+    color: black;
+    position: relative;
+    top: 75px;
+    left: 10px;
+}
+#searchResults .gifOverlay img {
+    position: relative;
+    left: 90px;
+    width: 35px;
+    height: 35px;
+}
 
 @media (max-width: 768px) {
     .search_section {

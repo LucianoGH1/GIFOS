@@ -64,11 +64,15 @@
     width: 40px;
     height: 40px;
     margin: .5rem;
+    position: relative;
+    left: 55px;
 }
-.gifOverlayLayout {
-    display: flex;
-    flex-direction: row-reverse;
+.gifOverlay div {
+    position: relative;
+    top: 100px;
+    text-align: left;
 }
+
 
 .gif:hover {
     cursor: pointer;

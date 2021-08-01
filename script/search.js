@@ -18,23 +18,55 @@ async function getSearch(q) {
 
     resultTitle.textContent = q;
     for (let index = 0; index < 12; index++) {
-        let gifCont = document.createElement('div');
-        let img = document.createElement('img');
-        let gifOverlay = document.createElement('div');
 
-        img.src = resultado.data[index].images.downsized.url;
-        img.classList.add('gif');
+        const gif = document.createElement('img');
+        gif.src = resultado.data[index].images.downsized.url;
+        gif.classList.add('gif');
+
+        const gifBox = document.createElement('div');
+        gifBox.classList.add('gifBox')
+        
+        const gifOverlay = document.createElement('div');
         gifOverlay.classList.add('gifOverlay');
         gifOverlay.classList.add('hidden')
-        gifCont.classList.add('gifBox')
-        gifCont.appendChild(img);
-        gifCont.appendChild(gifOverlay);
-        searchResults.appendChild(gifCont);
         
-        gifCont.addEventListener('mouseenter', ()=> {
+        
+        const favBtn = document.createElement('img');
+        favBtn.src = './src/favBtn.svg';
+        favBtn.id = 'favBtn';
+        
+        const downloadBtn = document.createElement('img');
+        downloadBtn.src = './src/downloadBtn.svg';
+        downloadBtn.id = 'downloadBtn';
+        
+        const expandBtn = document.createElement('img');
+        expandBtn.src = './src/expandBtn.svg';
+        expandBtn.id = 'expandBtn';
+        
+        
+        const userName = document.createElement('p');
+        userName.textContent = 'Usuario';
+        
+        const gifName = document.createElement('p');
+        gifName.textContent = 'Nombre del gif';
+        
+        const gifInfo = document.createElement('div');
+        
+
+        gifOverlay.appendChild(favBtn);
+        gifOverlay.appendChild(downloadBtn);
+        gifOverlay.appendChild(expandBtn);
+        gifInfo.appendChild(userName);
+        gifInfo.appendChild(gifName);
+        gifOverlay.appendChild(gifInfo);
+        gifBox.appendChild(gif);
+        gifBox.appendChild(gifOverlay);
+        searchResults.appendChild(gifBox);
+
+        gifBox.addEventListener('mouseenter', ()=> {
             gifOverlay.classList.remove('hidden')
         })
-        gifCont.addEventListener('mouseleave', ()=> {
+        gifBox.addEventListener('mouseleave', ()=> {
             gifOverlay.classList.add('hidden')
         })
     }
@@ -42,16 +74,18 @@ async function getSearch(q) {
 }
 
 async function autoComplete(q) {
-    let apiKey = 'cQpVQAK3NDI6Fwdv9fVjKuWSECsaWeUr';
-    let url = `https://api.giphy.com/v1/gifs/search/tags?api_key=${apiKey}&q=${q}`
-    let respuesta = await fetch(url);
-    let resultado = await respuesta.json();
-    let sugerencias = resultado.data;
+    const apiKey = 'cQpVQAK3NDI6Fwdv9fVjKuWSECsaWeUr';
+    const url = `https://api.giphy.com/v1/gifs/search/tags?api_key=${apiKey}&q=${q}`
+    const respuesta = await fetch(url);
+    const resultado = await respuesta.json();
+    const sugerencias = resultado.data;
+
     sugerencias.forEach(sug => {
-        let sugerencia = document.createElement('p');
+        const sugerencia = document.createElement('p');
         sugerencia.textContent = sug.name;
         sugerencia.classList.add('sugerencia');
         sugContainer.appendChild(sugerencia);
+
         sugerencia.addEventListener('click', () => {
             console.log(sugerencia.textContent);
             searchInput.value = sugerencia.textContent;
@@ -61,7 +95,6 @@ async function autoComplete(q) {
             };
             getSearch(q);
             sugContainer.classList.add('hidden');
-
         })
     });
 
