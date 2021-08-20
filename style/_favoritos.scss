@@ -1,0 +1,16 @@
+#favoritosCont {
+    width: 80%;
+    margin: 5rem auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 2rem;
+    
+}
+
+#favoritosCont .gif,
+#favoritosCont .gifBox  {
+    height: 200px;
+    width: 100%;
+}
+

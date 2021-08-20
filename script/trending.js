@@ -4,6 +4,13 @@ const gifCont = document.getElementById('gifCont');
 const apiKey = 'cQpVQAK3NDI6Fwdv9fVjKuWSECsaWeUr';
 const gifsUrl = [];
 
+let favGifos;
+if(localStorage.getItem('favGifos') !== null){
+    favGifos = JSON.parse(localStorage.getItem('favGifos'));
+} else {
+    favGifos = new Array;
+}
+
 
 
 async function getTrending() {
@@ -24,24 +31,50 @@ async function getTrending() {
         gifOverlay.classList.add('gifOverlay');
         gifOverlay.classList.add('hidden');
 
+        const favGif = { 
+            url: gif.attributes.src.nodeValue,
+            title: g.title,
+            userName: g.username
+        };
         const favBtn = document.createElement('img');
-        favBtn.src = './src/favBtn.svg';
+        if (favGifos.find((fav) => fav.url == favGif.url)) {
+            favBtn.src = './src/favBtn-active.svg';
+        } else {
+            favBtn.src = './src/favBtn.svg';   
+        }
         favBtn.id = 'favBtn';
+        favBtn.classList.add('hov');
+
+        favBtn.addEventListener('click', () => {  //agregar esto a favoritos.js
+            if (favGifos.find((fav) => fav.url == favGif.url)) {
+                console.log('gif ya esta en favoritos');
+            } else {
+                console.log('gif agregado a favs');
+                localStorage.getItem('favGifos')
+                favGifos.push(favGif);              
+                console.log(favGifos);
+                localStorage.setItem('favGifos', JSON.stringify(favGifos))
+                favBtn.src = './src/favBtn-active.svg';
+            }
+        })
+        
 
         const downloadBtn = document.createElement('img');
+        downloadBtn.classList.add('hov');
         downloadBtn.src = './src/downloadBtn.svg';
         downloadBtn.id = 'downloadBtn';
 
         const expandBtn = document.createElement('img');
+        expandBtn.classList.add('hov');
         expandBtn.src = './src/expandBtn.svg';
         expandBtn.id = 'expandBtn';
 
         const gifInfo = document.createElement('div');
 
         const userName = document.createElement('p');
-        userName.textContent = 'Usuario';
+        userName.textContent = g.username;
         const gifName = document.createElement('p');
-        gifName.textContent = 'Nombre del gif';
+        gifName.textContent = g.title;
 
         
 
@@ -64,17 +97,15 @@ async function getTrending() {
             gifOverlay.classList.remove('gifOverlayLayout')
             gifOverlay.classList.add('hidden')
         })
+
     });
+    hover = document.querySelectorAll(".hov");
+    hoverChangeImg(hover);
 }
 
-async function searches() {
-    const url = `http://api.giphy.com/v1/trending/searches?api_key=${apiKey}`;
-    const respuesta = await fetch(url);
-    const resultado = await respuesta.json();
-
-}
-searches();
 getTrending();
+
+
 
 btnSliderLeft.onclick = function() {
     gifCont.scrollLeft -= 790;
@@ -82,3 +113,6 @@ btnSliderLeft.onclick = function() {
 btnSliderRight.onclick = function() {
     gifCont.scrollLeft += 790;
 }
+
+
+

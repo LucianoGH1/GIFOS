@@ -17,6 +17,7 @@
   position: fixed;
   top: 0;
   background-color: rgba(255, 255, 255, 0.7);
+  z-index: 10;
 }
 
 .logo {
@@ -218,6 +219,11 @@ h1 {
   height: 100%;
 }
 
+#searchResults .gifOverlay p {
+  font-size: .8rem;
+  font-weight: 400;
+}
+
 #resultTitle {
   text-transform: uppercase;
   margin: 1rem;
@@ -342,8 +348,12 @@ h1 {
   position: relative;
 }
 
+.hov {
+  cursor: pointer;
+}
+
 .gifOverlay {
-  background-color: #572EE5;
+  background-color: rgba(86, 46, 229, 0.7);
   width: 100%;
   height: 100%;
   z-index: 2;
@@ -364,6 +374,11 @@ h1 {
   position: relative;
   top: 100px;
   text-align: left;
+}
+
+.trending_section .gifOverlay p {
+  font-size: 1rem;
+  font-weight: 400;
 }
 
 .gif:hover {
@@ -527,6 +542,24 @@ h1 {
   border: 1px solid #572EE5;
   width: 688px;
   height: 390px;
+}
+
+#favoritosCont {
+  width: 80%;
+  margin: 5rem auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 2rem;
+}
+
+#favoritosCont .gif,
+#favoritosCont .gifBox {
+  height: 200px;
+  width: 100%;
 }
 
 * {

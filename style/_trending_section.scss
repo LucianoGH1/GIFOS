@@ -49,10 +49,12 @@
     height: 300px;
     z-index: 1;
     position: relative;
-
+}
+.hov {
+    cursor: pointer;
 }
 .gifOverlay {
-    background-color: $primary-color;
+    background-color:rgba(86, 46, 229, 0.7);
     width: 100%;
     height: 100%;
     z-index: 2;
@@ -71,6 +73,11 @@
     position: relative;
     top: 100px;
     text-align: left;
+}
+
+.trending_section .gifOverlay p {
+    font-size: 1rem;
+    font-weight: 400;
 }
 
 

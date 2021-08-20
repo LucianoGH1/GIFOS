@@ -11,6 +11,7 @@
     position: fixed;
     top: 0;
     background-color: rgba($color: #fff, $alpha: .7);
+    z-index: 10;
 }
 .logo {
     height: 60px;
