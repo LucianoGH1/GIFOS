@@ -2,6 +2,7 @@
     color: white;
     background-color: $noc-color;
 }
+
 .nocturno header, 
 .nocturno footer {
     border-color: black;
@@ -26,7 +27,21 @@
 .nocturno .trending_gifos {
     background-color: $noc-color2;
 }
-
+.nocturno .crear_section .pantalla,
+.nocturno .crear_section button{
+border: 1px solid white;
+}
+.nocturno .crear_section p,
+.nocturno .crear_section button {
+    color: white;
+}
+.nocturno .crear_section #separador
+{
+    background-color: white;
+}
+.nocturno .crear_section button  {
+    background-color: $noc-color;
+}
 @media (max-width: 768px) {
     .nocturno header {
         background-color: rgba($color: $noc-color, $alpha: 1);

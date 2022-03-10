@@ -1,15 +1,15 @@
+
 .crear_section {
-    width: 90%;
+    width: 100%;
     height: 80vh;
     margin: auto;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 5rem;
+    margin-top: 7.5rem;
 }
 .camara {
-    height: 162px;
-    width: 240px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -17,8 +17,85 @@
     top: 16rem;
     left: 7rem;
 }
+
 .pantalla {
     border: 1px solid $primary-color;
-    width: 688px;
-    height: 390px;
+    width: 55%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#video {
+    width: 75%;
+    height: 320px;
+    object-fit: cover;
+}
+
+#buttonCont button {
+    margin: 1rem 1rem;
+}
+.boton {
+    color: $primary-color;
+    border: 1px solid $primary-color;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}
+#separador{
+    width: 65vw;
+    height: 6px;
+    background-color: $primary-color;
+    margin-left:auto;
+    margin-right:auto;
+    border-radius: 25px;
+}
+#comenzar, #grabar, #finalizar, #subirGifo {
+    margin-top: 1rem;
+    padding: .5rem;
+    height: min-content;
+    width: 7rem;
+    border-radius: 25px;
+}
+#timer, #repetir {
+    position: relative;
+    bottom: 2.7rem;
+    left: 19.6rem;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+
+}
+#repetir {
+    font-size: .8rem;
+    cursor: pointer;
+}
+
+.crearPaso{
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+.crearPaso h2 {
+    font-size: 1.5rem;
+}
+.crearPaso span {
+    color: $secondary-color;
+}
+.crearPaso p {
+    font-family: 'Roboto', sans-serif; 
+    color: black;
+    font-weight: 500;
+}
+.pasoActivo {
+    background-color: $primary-color;
+    color: white;
 }

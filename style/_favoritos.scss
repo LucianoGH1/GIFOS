@@ -1,16 +1,53 @@
-#favoritosCont {
-    width: 80%;
-    margin: 5rem auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-gap: 2rem;
-    
+#mainFavoritos {
+    margin-top: 10rem;
 }
 
+#favoritosCont {
+    width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-gap: 2rem;
+    color: black;
+    font-family: $primary-font;
+    
+}
 #favoritosCont .gif,
 #favoritosCont .gifBox  {
     height: 200px;
     width: 100%;
 }
+#favoritosTitulo {
+    width: 30%;
+    height: 30%;
+    margin: 3rem auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#favoritosTitulo h1 {
+    margin: 1rem 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    
+}
+#favoritosSinContenido {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: $secondary-color;
+}
 
+@media (max-width: 768px) { 
+    #favoritosCont{
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+}

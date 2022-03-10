@@ -1,6 +1,19 @@
-.trending_topics {
+#trending_topics {
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     margin-bottom: 2rem;
 
+}
+#trendingTermsCont {
+    width: 50%;
+    margin: auto;
+}
+#trendingTermsCont a {
+    cursor: pointer;
+}
+#trendingTermsCont a,
+#trendingTermsCont p {
+    display: inline;
+    font-size: 1rem;
+    font-weight: bold;
 }

@@ -1,12 +1,18 @@
-const favGifosParsed = JSON.parse(localStorage.getItem('favGifos'));
+let favGifosParsed = JSON.parse(localStorage.getItem('favGifos'));
 const favoritosCont = document.getElementById('favoritosCont');
+const favoritosSinContenido = document.getElementById('favoritosSinContenido');
 
-
+if (localStorage.getItem('favGifos') != '[]') {
+    favoritosSinContenido.style.display = 'none';
+}
 
 favGifosParsed.map((fav) => {
     const favGif = document.createElement('img');
     favGif.src = fav.url;
     favGif.classList.add('gif');
+    favGif.addEventListener('click', () => {
+        expandGif(fav)
+    })
 
     const gifBox = document.createElement('div');
     gifBox.classList.add('gifBox');
@@ -16,11 +22,25 @@ favGifosParsed.map((fav) => {
     gifOverlay.classList.add('hidden');
 
     const favBtn = document.createElement('img');
-    if (favGifos.find((fav) => fav.url == favGif.url)) {
+
+    if (favGifos.find((fav) => fav.url == favGif.src)) {
         favBtn.src = './src/favBtn-active.svg';
     } else {
         favBtn.src = './src/favBtn.svg';   
     }
+
+    favBtn.addEventListener('click', () => { 
+        if (favGifos.find((fav) => fav.url == favGif.src)) {
+            const favIndex = favGifosParsed.indexOf(fav); 
+            favGifos.splice(favIndex, 1);
+            console.log(favGifos);
+            localStorage.setItem('favGifos', JSON.stringify(favGifos))
+            favBtn.src = './src/favBtn.svg';   
+        } else {
+            
+            
+        }
+    })
     favBtn.id = 'favBtn';
     favBtn.classList.add('hov');
 
@@ -28,11 +48,18 @@ favGifosParsed.map((fav) => {
     downloadBtn.classList.add('hov');
     downloadBtn.src = './src/downloadBtn.svg';
     downloadBtn.id = 'downloadBtn';
+    downloadBtn.addEventListener('click', () => {
+        console.log(fav.images.original.url);
+        downloadEvent(fav); 
+    });
 
     const expandBtn = document.createElement('img');
     expandBtn.classList.add('hov');
     expandBtn.src = './src/expandBtn.svg';
     expandBtn.id = 'expandBtn';
+    expandBtn.addEventListener('click', () => {
+        expandGif(fav);
+    })
 
     const gifInfo = document.createElement('div');
     const userName = document.createElement('p');

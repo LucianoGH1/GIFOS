@@ -10,12 +10,7 @@ const hoverChangeImg = (arr) => {
         });
         element.addEventListener('mouseout', () => {  
             if(element.attributes.src.textContent != './src/favBtn-active.svg') {
-                if (body.className.includes('nocturno')) {
-                    element.src = `./src/${element.id}-noc.svg`
-                } else {
-                    element.src = `src/${element.id}.svg`
-                }
-
+                element.src = `src/${element.id}.svg`;
             }
             
         });

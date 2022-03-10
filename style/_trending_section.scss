@@ -19,7 +19,8 @@
 .trending_gifos p {
     color: black;
     font-family: 'Roboto', sans-serif;
-    font-weight: bold;
+    font-weight: 550;
+    font-size: 1.2rem;
 
 }
 
@@ -73,8 +74,11 @@
     position: relative;
     top: 100px;
     text-align: left;
-}
 
+}
+.gifOverlay p {
+    color: white;
+}
 .trending_section .gifOverlay p {
     font-size: 1rem;
     font-weight: 400;

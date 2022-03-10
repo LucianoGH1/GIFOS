@@ -1,0 +1,55 @@
+.popUpCont {
+    width: 100vw;
+    height: 100vh;
+    z-index: 20;
+    background-color: rgba(255, 255, 255, 0.9);
+    opacity: 1;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+.closeBtn {
+    position: fixed;
+    top: 8vh;
+    right: 25vw;
+}
+.popUpGifCard {
+    width: 45vw;
+    height: 85vh;
+    margin: 7.5vh auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+.popUpGif {
+    width: 80%;
+    height: 70vh;
+}
+.popUpInfoAndBtns {
+    width: 80%;
+    height: 15vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+
+}
+.popUpBtns img {
+    margin: 0 .5rem;
+}
+
+@media (max-width: 768px) {
+    .popUpGifCard {
+        width: 100%;
+    }
+    .closeBtn {
+        right: 5vw;
+    }
+    .popUpInfoAndBtns {
+        font-size: .8rem;
+    }
+}

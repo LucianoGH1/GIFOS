@@ -116,6 +116,9 @@ h1 {
 }
 
 @media (max-width: 768px) {
+    .gifOverlay{
+        display: none;
+    }
     .search_section {
         width: 90%;
     }
@@ -130,8 +133,8 @@ h1 {
         font-size: 1rem;
     }
     #searchResults {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(6, 1fr);
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: auto;
     }
     #searchResults img {
         width: 100%;

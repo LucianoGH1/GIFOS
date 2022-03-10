@@ -41,6 +41,10 @@
     display: none;
 }
 
+.navbar li:hover {
+    border-bottom: 2px solid $secondary-color;
+}
+
 
 
 @media (max-width: 768px) {
@@ -77,6 +81,9 @@
     }
     .nocturno .navbar {
         background-color: black;
+    }
+    #button-crear-gifo {
+        display: none;
     }
     
 }

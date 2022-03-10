@@ -21,11 +21,19 @@ async function getSearch(q) {
     resultTitle.textContent = q;
 
     for (let index = 0; index < 12; index++) {
-        const g = resultado.data[index];
-        console.log(g);
-        const gif = document.createElement('img');
-        gif.src = g.images.downsized.url;
-        gif.classList.add('gif');
+        const g = gifData[index];
+        const gif = { 
+            url: g.images.downsized.url,
+            title: g.title,
+            userName: g.username,
+            images: g.images
+        };
+        const gifImg = document.createElement('img');
+        gifImg.src = g.images.downsized.url;
+        gifImg.classList.add('gif');
+        gifImg.addEventListener('click', () => {
+            expandGif(gif)
+        })
 
         const gifBox = document.createElement('div');
         gifBox.classList.add('gifBox')
@@ -34,36 +42,33 @@ async function getSearch(q) {
         gifOverlay.classList.add('gifOverlay');
         gifOverlay.classList.add('hidden')
         
-        const favGif = { url: gif.attributes.src.nodeValue };
         const favBtn = document.createElement('img');
-        if (favGifos.find((fav) => fav.url == favGif.url)) {
+        if (favGifos.find((fav) => fav.url == gif.url)) {
             favBtn.src = './src/favBtn-active.svg';
         } else {
             favBtn.src = './src/favBtn.svg';   
         }
         favBtn.id = 'favBtn';
         favBtn.classList.add('hov');
-        favBtn.addEventListener('click', () => {
-            if (favGifos.find((fav) => fav.url == favGif.url)) {
-                console.log('gif ya esta en favoritos');
-            } else {
-                localStorage.getItem('favGifos')
-                favGifos.push(favGif);              
-                console.log(favGifos);
-                localStorage.setItem('favGifos', JSON.stringify(favGifos));
-                favBtn.src = './src/favBtn-active.svg';
-            }
+        favBtn.addEventListener('click', () => { 
+            addToFavs (gif, favBtn);
         })
         
         const downloadBtn = document.createElement('img');
         downloadBtn.src = './src/downloadBtn.svg';
         downloadBtn.id = 'downloadBtn';
         downloadBtn.classList.add('hov');
+        downloadBtn.addEventListener('click', () => {
+            downloadEvent(g); 
+        });
         
         const expandBtn = document.createElement('img');
         expandBtn.src = './src/expandBtn.svg';
         expandBtn.id = 'expandBtn';
         expandBtn.classList.add('hov');
+        expandBtn.addEventListener('click', () => {
+            expandGif(gif);
+        })
         
         
         const userName = document.createElement('p');
@@ -81,7 +86,7 @@ async function getSearch(q) {
         gifInfo.appendChild(userName);
         gifInfo.appendChild(gifName);
         gifOverlay.appendChild(gifInfo);
-        gifBox.appendChild(gif);
+        gifBox.appendChild(gifImg);
         gifBox.appendChild(gifOverlay);
         searchResults.appendChild(gifBox);
 
